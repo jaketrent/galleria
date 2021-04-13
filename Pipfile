@@ -9,6 +9,7 @@ django-storages = "*"
 python-dotenv = "*"
 pillow = "*"
 boto3 = "*"
+django-crispy-forms = "*"
 
 [dev-packages]
 

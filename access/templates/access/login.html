@@ -1,0 +1,17 @@
+{% load crispy_forms_tags %}
+
+{% block content %}
+  <div class="content-section">
+    <h1>Log In</h1>
+    <form method="POST" accept-charset="utf-8">
+      {% csrf_token %}
+      <fieldset class="form-group">
+        <legend class="border-bottom mb-4">Log In</legend>
+        {{ form|crispy }}
+        <div class="form-group">
+          <button class="btn btn-outline-info">Login</button>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+{% endblock content %}
