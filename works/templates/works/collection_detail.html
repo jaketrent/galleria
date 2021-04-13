@@ -1,0 +1,11 @@
+<h1>{{ collection.title }}</h1>
+
+<ul>
+{% for work in collection.works.all %}
+  <li>
+    <a href="{% url 'works_work' work.pk %}">
+      <img src="{{ work.image_cdn_url }}" alt="{{ work.title }}" />
+    </a>
+  </li>
+{% endfor %}
+</ul>

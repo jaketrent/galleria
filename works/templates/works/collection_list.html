@@ -1,0 +1,16 @@
+<h1>Collections</h1>
+
+{% for collection in object_list %}
+<article>
+  <heading>
+  <h2><a href="{% url 'works_collection' collection.pk %}">{{ collection.title }}</a></h2>
+  </heading>
+  {% with collection.works.all|first as work %}
+    {{ work }}
+    <img src="{{ work.image_cdn_url }}" />
+  {% endwith %}
+  <p>
+    {{ collection.description }}
+  </p>
+</article>
+{% endfor %}
