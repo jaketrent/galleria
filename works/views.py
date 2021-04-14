@@ -1,9 +1,12 @@
 from django.views.generic import (
     ListView,
-    DetailView
+    DetailView,
+    TemplateView
 )
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Collection, Work
+from access.views import AccessTokenRequiredMixin
+from access.models import AccessToken
 
 class CollectionListView(LoginRequiredMixin, ListView):
     model = Collection
@@ -17,3 +20,14 @@ class CollectionDetailView(LoginRequiredMixin, DetailView):
 
 class WorkDetailView(LoginRequiredMixin, DetailView):
     model = Work
+
+class AccessCollectionDetailView(AccessTokenRequiredMixin, TemplateView):
+    model = Collection
+    template_name = 'works/collection_detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        access_token = kwargs['access_token']
+        context['collection'] = AccessToken.objects.filter(id=access_token).first().collection
+        return context
+

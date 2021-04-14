@@ -10,6 +10,7 @@ python-dotenv = "*"
 pillow = "*"
 boto3 = "*"
 django-crispy-forms = "*"
+django-shortuuidfield = "*"
 
 [dev-packages]
 
