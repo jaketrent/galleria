@@ -1,8 +1,8 @@
 #!/usr/bin/env python
-from dotenv import load_dotenv
-import requests
 
+from dotenv import load_dotenv
 import os
+import requests
 import sys, getopt
 
 def main(argv):
@@ -12,7 +12,6 @@ def main(argv):
 
     for url in files:
         print(url)
-
 
 def verify_env():
     if not 'GALLERIA_API_TOKEN' in os.environ:
@@ -50,7 +49,6 @@ def parse_args(argv):
         else:
             files.append(arg)
     return collection, url, files
-
 
 load_dotenv()
 if __name__ == "__main__":

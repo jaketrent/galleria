@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+
 import boto3
 from PIL import Image
 import os
@@ -82,7 +83,6 @@ def parse_args(argv):
         else:
             files.append(arg)
     return int(size), bucket_name, directory, files
-
 
 if __name__ == "__main__":
     main(sys.argv[1:])
