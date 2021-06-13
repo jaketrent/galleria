@@ -11,8 +11,12 @@ pillow = "*"
 boto3 = "*"
 django-crispy-forms = "*"
 django-shortuuidfield = "*"
+djangorestframework = "*"
+markdown = "*"
+requests = "*"
 
 [dev-packages]
+rope = "*"
 
 [requires]
 python_version = "3.9"

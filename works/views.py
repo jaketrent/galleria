@@ -7,6 +7,9 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Collection, Work
 from access.views import AccessTokenRequiredMixin
 from access.models import AccessToken
+from rest_framework import viewsets
+from rest_framework import permissions
+from .serializers import WorkSerializer, CollectionSerializer
 
 class CollectionListView(LoginRequiredMixin, ListView):
     model = Collection
@@ -30,4 +33,14 @@ class AccessCollectionDetailView(AccessTokenRequiredMixin, TemplateView):
         access_token = kwargs['access_token']
         context['collection'] = AccessToken.objects.filter(id=access_token).first().collection
         return context
+
+class WorkViewSet(viewsets.ModelViewSet):
+    queryset = Work.objects.all()
+    serializer_class = WorkSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+class CollectionViewSet(viewsets.ModelViewSet):
+    queryset = Collection.objects.all()
+    serializer_class = CollectionSerializer
+    permission_classes = [permissions.IsAuthenticated]
 
