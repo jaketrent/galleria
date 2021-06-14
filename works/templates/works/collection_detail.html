@@ -2,13 +2,21 @@
 {% load static %}
 
 {% block head %}
+  <meta property="og:title" content="{{ collection.title }}"/>
+  <meta property="og:type" content="article"/>
+  {% if collection.title %}
+    <meta property="og:description" content="{{ collection.description }}"/>
+  {% endif %}
+  {% with collection.works.all|first as work %}
+    <meta property="og:image" content="{{ work.image_cdn_url }}"/>
+  {% endwith %}
   <link rel="stylesheet" href="{% static "work/work.css" %}" type="text/css" /> 
 {% endblock %}
 
 {% block main %}
   <h1>{{ collection.title }}</h1>
   <p>
-    {{ collection.description }}
+    {{ collection.description|default:"" }}
   </p>
 
   <ul class="works">
