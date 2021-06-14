@@ -27,6 +27,16 @@ Populate in `cli/.env`:
 GALLERIA_API_TOKEN=abc123
 ```
 
+To convert .HEIC files:
+
+```
+pipenev shell
+brew install imagemagick
+pipenv install
+
+heic-to-jpg -s .
+```
+
 ## To run the cli
 
 ```
@@ -40,3 +50,5 @@ Or combine:
 ```
 ./upload -s 900 -d "galleria/posters" file1.jpg file2.jpg | xargs ./post -c Posters
 ```
+
+

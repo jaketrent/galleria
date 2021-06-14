@@ -1,0 +1,33 @@
+.works {
+  max-width: 100%;
+  margin: 0 auto;
+  list-style: none;
+  padding-left: 0;
+}
+.works__work {
+  margin-bottom: 1rem;
+}
+.works__work img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+@media screen and (min-width: 768px) {
+  .works {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 1rem;
+  }
+  .works__work:nth-child(5n + 1) {
+    grid-column: span 4;
+    grid-row: span 2;
+  }
+  .works__work:nth-child(5n + 2),
+  .works__work:nth-child(5n + 3) {
+    grid-column: span 2;
+  }
+  .works__work:nth-child(5n + 4),
+  .works__work:nth-child(5n + 5) {
+    grid-column: span 3;
+  }
+}

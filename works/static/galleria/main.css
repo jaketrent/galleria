@@ -1,0 +1,12 @@
+:root {
+  --colorBgRgb: 56, 57, 60;
+  --colorFgRgb: 255, 255, 255;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  color: rgb(var(--colorFgRgb));
+  background: rgb(var(--colorBgRgb));
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
