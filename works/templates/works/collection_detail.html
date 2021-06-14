@@ -7,6 +7,9 @@
 
 {% block main %}
   <h1>{{ collection.title }}</h1>
+  <p>
+    {{ collection.description }}
+  </p>
 
   <ul class="works">
     {% for work in collection.works.all %}

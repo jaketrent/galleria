@@ -1,5 +1,7 @@
-<h1>{{ work.title }}</h1>
+{% extends "galleria/base.html" %} 
 
-<img src="{{ work.image_cdn_url }}" alt="{{ work.title }}" />
-
-<p>{{ work.description }}</p>
+{% block main %}
+  <h1>{{ work.title }}</h1>
+  <img src="{{ work.image_cdn_url }}" alt="{{ work.title }}" />
+  <p>{{ work.description }}</p>
+{% endblock %}

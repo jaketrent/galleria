@@ -10,3 +10,6 @@ body {
   background: rgb(var(--colorBgRgb));
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+a {
+  color: inherit;
+}

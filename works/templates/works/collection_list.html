@@ -1,16 +1,16 @@
-<h1>Collections</h1>
+{% extends "galleria/base.html" %}
 
-{% for collection in object_list %}
-<article>
-  <heading>
-  <h2><a href="{% url 'works_collection' collection.pk %}">{{ collection.title }}</a></h2>
-  </heading>
-  {% with collection.works.all|first as work %}
-    {{ work }}
-    <img src="{{ work.image_cdn_url }}" />
-  {% endwith %}
-  <p>
-    {{ collection.description }}
-  </p>
-</article>
-{% endfor %}
+{% block main %}
+  <h1>Collections</h1>
+
+  <ul class="collections">
+    {% for collection in object_list %}
+      <li class="collections__collection">
+        <h2><a href="{% url 'works_collection' collection.pk %}">{{ collection.title }}</a></h2>
+        {% with collection.works.all|first as work %}
+          <img src="{{ work.image_cdn_url }}" />
+        {% endwith %}
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
