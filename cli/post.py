@@ -36,11 +36,11 @@ def parse_args(argv):
     try:
         opts, files = getopt.getopt(argv,"hc:u:",["collection=", "url="])
     except getopt.GetoptError:
-        print('post.py -c <collection> <file paths>')
+        print('post.py -c <collection> -u <api_url> <file paths>')
         sys.exit(2)
     for opt, arg in opts:
         if opt == '-h':
-            print('post.py -c <collection>')
+            print('post.py -c <collection> -u <api_url> <file paths>')
             sys.exit()
         elif opt in ("-c", "--collection"):
             collection = arg
