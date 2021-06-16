@@ -13,18 +13,22 @@
   <link rel="stylesheet" href="{% static "work/work.css" %}" type="text/css" /> 
 {% endblock %}
 
+{% block bodyend %}
+  <script src="{% static "work/work.js" %}" charset="utf-8"></script>
+{% endblock %}
+
 {% block main %}
-  <h1>{{ collection.title }}</h1>
-  <p>
-    {{ collection.description|default:"" }}
-  </p>
+  <div class="collection__intro">
+    <h1>{{ collection.title }}</h1>
+    <p>
+      {{ collection.description|default:"" }}
+    </p>
+  </div>
 
   <ul class="works">
     {% for work in collection.works.all %}
     <li class="works__work">
-      <a href="{% url 'works_work' work.pk %}">
-        <img src="{{ work.image_cdn_url }}" alt="{{ work.title }}" />
-      </a>
+      <img src="{{ work.image_cdn_url }}" alt="{{ work.title }}" loading="lazy" tabindex="0" />
     </li>
     {% endfor %}
   </ul>

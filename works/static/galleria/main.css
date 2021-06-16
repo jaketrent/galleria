@@ -1,6 +1,17 @@
 :root {
   --colorBgRgb: 56, 57, 60;
+  --colorElev1BgRgb: 26, 27, 30;
   --colorFgRgb: 255, 255, 255;
+  --colorAccentRgb: 254, 242, 72;
+}
+@font-face {
+  font-family: 'Alegreya';
+  src: url('/static/galleria/Alegreya-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Alegreya';
+  src: url('/static/galleria/Alegreya-Bold.ttf') format('truetype');
+  font-weight: bold;
 }
 * {
   box-sizing: border-box;
@@ -8,7 +19,7 @@
 body {
   color: rgb(var(--colorFgRgb));
   background: rgb(var(--colorBgRgb));
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: Alegreya, sans-serif;
 }
 a {
   color: inherit;
