@@ -10,7 +10,7 @@ class WorkSerializer(serializers.HyperlinkedModelSerializer):
     collection_title = serializers.CharField(write_only=True)
     image = serializers.CharField(write_only=True)
     user = serializers.HiddenField(default=serializers.CurrentUserDefault())
-    collection_url = serializers.CharField(source="get_collection_absolute_url")
+    collection_url = serializers.CharField(source="get_collection_absolute_url", read_only=True)
 
     def create(self, validated_data):
         collection, _created = Collection.objects.get_or_create(
