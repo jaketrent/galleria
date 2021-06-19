@@ -2,7 +2,14 @@ from django.contrib.auth.models import User
 from django.contrib import admin
 from .models import Work, Collection
 
-admin.site.register(Collection)
+class WorkInline(admin.TabularInline):
+    model = Work
+    readonly_fields = ('title', 'date_created', 'image', 'description', 'user')
+    extra = 0
+
+@admin.register(Collection)
+class CollectionAdmin(admin.ModelAdmin):
+    inlines = [WorkInline]
 
 @admin.register(Work)
 class WorkAdmin(admin.ModelAdmin):
