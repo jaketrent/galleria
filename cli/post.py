@@ -8,9 +8,9 @@ import sys, getopt
 def main(argv):
     verify_env()
     collection, url, files = parse_args(argv)
-    post_files(collection, url, files)
+    posted_urls = post_files(collection, url, files)
 
-    for url in files:
+    for url in posted_urls:
         print(url)
 
 def verify_env():
@@ -18,8 +18,10 @@ def verify_env():
         sys.exit('First set GALLERIA_API_TOKEN in environment')
 
 def post_files(collection, url, files):
+    posted_urls = []
     for file in files:
-        post_file(collection, url, file)
+        posted_urls.append(post_file(collection, url, file))
+    return list(set(posted_urls))
 
 def post_file(collection, url, file):
     data = {
@@ -28,10 +30,14 @@ def post_file(collection, url, file):
         "image": file
     }
     head = {'Authorization': 'Token {}'.format(os.environ['GALLERIA_API_TOKEN'])}
-    requests.post(url, data=data,headers=head)
+    res = requests.post(url, data=data,headers=head)
+    if (res.status_code != 201):
+        print(res)
+        sys.exit('API post failed')
+    return res.json()['collection_url']
 
 def parse_args(argv):
-    url = 'http://localhost:8000/api/works/'
+    url = 'https://galleria.jaketrent.com/api/works/'
     collection = None
     try:
         opts, files = getopt.getopt(argv,"hc:u:",["collection=", "url="])
