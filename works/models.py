@@ -1,4 +1,6 @@
+from django.conf import settings
 from django.db import models
+from django.urls import reverse
 from django.utils import timezone
 from django.contrib.auth.models import User
 from galleria.settings import AWS_STORAGE_BUCKET_NAME,AWS_LOCATION
@@ -35,6 +37,10 @@ class Work(models.Model):
             return self.image.name
         else:
             return f'https://{AWS_STORAGE_BUCKET_NAME}/{AWS_LOCATION}{self.image.name}'
+
+    def get_collection_absolute_url(self):
+        return settings.DOMAIN + reverse('works_collection', args=(self.collection.pk,))
+
 
 def is_absolute(url):
     return bool(urlparse(url).netloc)

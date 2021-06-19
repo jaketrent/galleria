@@ -15,8 +15,17 @@ import os
 from pathlib import Path
 import django_heroku
 import dj_database_url
+import socket
 
 load_dotenv()
+
+try:
+    if 'local' in socket.gethostname():
+        DOMAIN = 'http://localhost:3000'
+    else:
+        DOMAIN = 'https://galleria.jaketrent.com'
+except:
+    DOMAIN = 'http://localhost:3000'
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent

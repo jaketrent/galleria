@@ -5,11 +5,12 @@ from .models import Work, Collection
 class WorkSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Work
-        fields = ['id', 'title', 'image_cdn_url', 'collection_title', 'image', 'user']
+        fields = ['id', 'title', 'image_cdn_url', 'collection_title', 'image', 'user', "collection_url"]
 
     collection_title = serializers.CharField(write_only=True)
     image = serializers.CharField(write_only=True)
     user = serializers.HiddenField(default=serializers.CurrentUserDefault())
+    collection_url = serializers.CharField(source="get_collection_absolute_url")
 
     def create(self, validated_data):
         collection, _created = Collection.objects.get_or_create(

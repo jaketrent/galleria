@@ -1,6 +1,7 @@
 ## To run the webapp
 
 ```
+./setup_env.sh
 pipenv shell
 pipenv install
 python manage.py migrate
@@ -41,6 +42,7 @@ heic-to-jpg -s .
 ## To run the cli
 
 ```
+./setup_env.sh
 pipenv shell
 ./upload -s 900 -d "galleria/dirname" file1.jpg file2.jpg
 ./post -c Posters url1
