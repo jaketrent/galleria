@@ -1,12 +1,82 @@
+/* works app components */
+.works_nav_link {
+  display: inline-flex;
+  align-items: center;
+}
+.works_nav_link svg {
+  margin-right: 0.35rem;
+}
+
+/* collection_list page */
+.collections {
+  --img-dimension: 256px;
+
+  list-style: none;
+  padding-left: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, var(--img-dimension));
+  grid-gap: 1rem;
+}
+.collections__collection a {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column-reverse;
+  transition: 300ms;
+}
+.collections__collection a:hover,
+.collections__collection a:focus {
+  outline: none;
+  color: rgb(var(--colorAccentRgb));
+  text-decoration: underline;
+}
+.collections__collection h2 {
+  margin: 0.5rem 0 1rem 0;
+  text-align: center;
+  font-size: 1rem;
+}
+.collections__collection__img {
+  background: rgb(var(--colorElev1BgRgb));
+  line-height: 0;
+  height: var(--img-dimension);
+  width: var(--img-dimension);
+  padding: 1rem;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  transition: border-color 300ms;
+}
+.collections__collection a:hover .collections__collection__img,
+.collections__collection a:focus .collections__collection__img {
+  border-color: rgb(var(--colorAccentRgb));
+}
+.collections__collection img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+}
 .collection__text {
   background: rgb(var(--colorElev1BgRgb));
   padding: 1rem 2rem;
   margin-bottom: 1rem;
   border-radius: 8px;
 }
+.collection__text a svg {
+  height: 1.15rem;
+  width: 1.15rem;
+}
 .collection__text h1 {
   color: rgb(var(--colorAccentRgb));
 }
+.collection__text h2 {
+  margin-bottom: 0.25rem;
+}
+.collection__text ul {
+  margin: 0;
+  padding-left: 0;
+  list-style-position: inside;
+}
+
+/* collection_detail page */
 .works {
   max-width: 100%;
   margin: 0 auto;

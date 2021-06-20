@@ -24,3 +24,7 @@ body {
 a {
   color: inherit;
 }
+a:hover,
+a:focus {
+  color: rgb(var(--colorAccentRgb));
+}

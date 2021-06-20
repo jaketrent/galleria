@@ -21,18 +21,27 @@
   
   {% if user.is_authenticated %}
     <div class="collection__text">
+      <a href="{% url "works_collections" %}" class="works_nav_link">
+        <svg fill="none" viewBox="0 0 24 24">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.25 4.75L4.75 9L9.25 13.25"></path>
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5.5 9H15.25C17.4591 9 19.25 10.7909 19.25 13V19.25"></path>
+        </svg>
+        All collections
+      </a>
       {% if access_tokens %}
         <h2>Share URLs</h2>
-        {% for access_token in access_tokens %}
-          <li>
-            <a href="{{ access_token.get_share_url }}">
-              {{ access_token.name }} 
-              {% if access_token.expires %}
-                (expires {{ access_token.expires }})
-              {% endif %}
-            </a>
-          </li>
-        {% endfor %}
+        <ul>
+          {% for access_token in access_tokens %}
+            <li>
+              <a href="{{ access_token.get_share_url }}">
+                {{ access_token.name }} 
+                {% if access_token.expires %}
+                  (expires {{ access_token.expires }})
+                {% endif %}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
       {% else %}
         <a href="{% url "works_collection" collection.pk %}">Browse collection view</a>
       {% endif %}
