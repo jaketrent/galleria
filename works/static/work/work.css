@@ -1,4 +1,10 @@
 /* works app components */
+.works_nav_row {
+  display: flex;
+}
+.works_nav_row > * {
+  margin-right: 2ch;
+}
 .works_nav_link {
   display: inline-flex;
   align-items: center;
