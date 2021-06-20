@@ -6,6 +6,27 @@
   margin-right: 2ch;
 }
 
+.works_button {
+  color: rgb(var(--colorBgRgb));
+  background-color: rgb(var(--colorAccentRgb));
+  padding: 0.25rem 1.5ch;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 300ms, transform 100ms linear;
+  font-family: Alegreya, sans-serif;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+}
+.works_button:hover,
+.works_button:focus {
+  color: rgb(var(--colorBgRgb));
+  background-color: rgb(var(--colorAccentHoverRgb));
+}
+.works_button:active {
+  transform: scale(0.98);
+}
+
 .works_label--icon {
   display: inline-flex;
   align-items: center;
@@ -75,14 +96,8 @@
 }
 
 /* collection_detail page */
-.collection_share h2 {
-  font-size: 1rem;
-  margin-bottom: 0.25rem;
-}
-.collection_share ul {
-  margin: 0;
-  padding-left: 0;
-  list-style-position: inside;
+.collection_share {
+  margin-top: 1rem;
 }
 @media (min-width: 800px) {
   .collection_admin {
@@ -91,7 +106,7 @@
     grid-gap: 1rem;
     align-items: start;
   }
-  .collection_share h2 {
+  .collection_share {
     margin-top: 0;
   }
 }

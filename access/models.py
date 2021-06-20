@@ -8,12 +8,9 @@ from works.models import Collection
 
 class AccessToken(models.Model):
     id = ShortUUIDField(primary_key=True, editable=False)
-    name = models.CharField(blank=True, null=True, max_length=255)
     expires = models.DateTimeField(blank=True, null=True)
-    collection = models.OneToOneField(Collection, on_delete=models.CASCADE)
+    collection = models.OneToOneField(Collection, on_delete=models.CASCADE, related_name='access_token')
     active = models.BooleanField(default=True)
-    parent = models.ForeignKey('self', related_name='children', blank=True, null=True, on_delete=models.CASCADE)
-    allow_children = models.BooleanField(default=True)
     date_created = models.DateTimeField(default=timezone.now)
     created_by = models.ForeignKey(User, blank=True, null=True, on_delete=models.CASCADE)
 
