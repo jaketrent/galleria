@@ -21,6 +21,11 @@ class CollectionListView(LoginRequiredMixin, ListView):
 class CollectionDetailView(LoginRequiredMixin, DetailView):
     model = Collection
 
+    def get_context_data(self, **kwargs):
+        context = super(CollectionDetailView, self).get_context_data(**kwargs)
+        context['access_tokens'] = AccessToken.objects.filter(collection_id = self.kwargs['pk'], created_by = self.request.user)
+        return context
+
 class WorkDetailView(LoginRequiredMixin, DetailView):
     model = Work
 

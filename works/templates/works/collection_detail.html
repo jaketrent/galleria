@@ -18,6 +18,27 @@
 {% endblock %}
 
 {% block main %}
+  
+  {% if user.is_authenticated %}
+    <div class="collection__access_tokens">
+      {% if access_tokens %}
+        <h2>Share URLs</h2>
+        {% for access_token in access_tokens %}
+          <li>
+            <a href="{{ access_token.get_share_url }}">
+              {{ access_token.name }} 
+              {% if access_token.expires %}
+                (expires {{ access_token.expires }})
+              {% endif %}
+            </a>
+          </li>
+        {% endfor %}
+      {% else %}
+        <a href="{% url "works_collection" collection.pk %}">Browse collection view</a>
+      {% endif %}
+    </div>
+  {% endif %}
+
   <div class="collection__intro">
     <h1>{{ collection.title }}</h1>
     <p>

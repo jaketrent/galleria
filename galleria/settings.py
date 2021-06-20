@@ -21,11 +21,11 @@ load_dotenv()
 
 try:
     if 'local' in socket.gethostname():
-        DOMAIN = 'http://localhost:3000'
+        DOMAIN = 'http://localhost:8000'
     else:
         DOMAIN = 'https://galleria.jaketrent.com'
 except:
-    DOMAIN = 'http://localhost:3000'
+    DOMAIN = 'http://localhost:8000'
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent

@@ -1,3 +1,8 @@
+.collection__access_tokens {
+  background: rgb(var(--colorElev1BgRgb));
+  padding: 1rem 2rem;
+  margin-bottom: 1rem;
+}
 .collection__intro {
   background: rgb(var(--colorElev1BgRgb));
   padding: 1rem 2rem;
