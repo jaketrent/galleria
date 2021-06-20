@@ -1,12 +1,8 @@
-.collection__access_tokens {
+.collection__text {
   background: rgb(var(--colorElev1BgRgb));
   padding: 1rem 2rem;
   margin-bottom: 1rem;
-}
-.collection__intro {
-  background: rgb(var(--colorElev1BgRgb));
-  padding: 1rem 2rem;
-  margin-bottom: 1rem;
+  border-radius: 8px;
 }
 .collection__intro h1 {
   color: rgb(var(--colorAccentRgb));
@@ -19,7 +15,6 @@
 }
 .works__work {
   margin-bottom: 1rem;
-  background: rgb(var(--colorElev1BgRgb));
 }
 .works__work img {
   cursor: pointer;
@@ -28,10 +23,12 @@
   height: 100%;
   object-fit: cover;
   transition: transform 300ms;
+  border-radius: 8px;
+  border: 2px solid transparent;
 }
 .works__work img:hover,
 .works__work img:focus {
-  outline: 2px solid rgb(var(--colorAccentRgb));
+  border: 2px solid rgb(var(--colorAccentRgb));
 }
 .works__modal {
   position: fixed;

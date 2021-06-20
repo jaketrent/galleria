@@ -20,7 +20,7 @@
 {% block main %}
   
   {% if user.is_authenticated %}
-    <div class="collection__access_tokens">
+    <div class="collection__text">
       {% if access_tokens %}
         <h2>Share URLs</h2>
         {% for access_token in access_tokens %}
@@ -39,7 +39,7 @@
     </div>
   {% endif %}
 
-  <div class="collection__intro">
+  <div class="collection__text">
     <h1>{{ collection.title }}</h1>
     <p>
       {{ collection.description|default:"" }}
