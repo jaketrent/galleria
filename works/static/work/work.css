@@ -142,11 +142,34 @@
   background: rgba(var(--colorElev1BgRgb), 0.9);
   padding: 2rem;
 }
+.works__modal--hidden {
+  display: none;
+}
 .works__modal img {
   height: 100%;
   width: 100%;
   object-fit: contain;
   animation: slideup 300ms ease-out forwards;
+}
+.works__modal__prev,
+.works__modal__next,
+.works__modal__close {
+  position: absolute;
+  line-height: 0;
+}
+.works__modal__prev {
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+.works__modal__next {
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+.works__modal__close {
+  top: 0;
+  right: 0;
 }
 @keyframes slideup {
   0% {
