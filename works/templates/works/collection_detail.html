@@ -20,7 +20,7 @@
 {% block main %}
   
   {% if user.is_authenticated %}
-    <div class="collection__text collection_admin">
+    <div class="collection_text collection_admin">
       <nav class="works_nav_row">
         <a href="{% url "works_collections" %}" class="works_label--icon">
           <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
@@ -65,8 +65,17 @@
     </div>
   {% endif %}
 
-  <div class="collection__text">
-    <h1>{{ collection.title }}</h1>
+  <div class="collection_text collection_intro">
+    <header>
+      <h1>{{ collection.title }}</h1>
+      <button class="works_button works_label--icon collection_slideshow">
+        <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.75 6.75C4.75 5.64543 5.64543 4.75 6.75 4.75H17.25C18.3546 4.75 19.25 5.64543 19.25 6.75V17.25C19.25 18.3546 18.3546 19.25 17.25 19.25H6.75C5.64543 19.25 4.75 18.3546 4.75 17.25V6.75Z"></path>
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.25 12L9.75 8.75V15.25L15.25 12Z"></path>
+        </svg>
+        Slideshow
+      </button>
+    </header>
     <p>
       {{ collection.description|default:"" }}
     </p>
@@ -98,6 +107,15 @@
       <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
         <path d="M13.75 6.75L19.25 12L13.75 17.25"></path>
         <path d="M19 12H4.75"></path>
+      </svg>
+    </button>
+    <button class="works_button works__modal__play works__modal__play--paused" aria-label="Play">
+      <svg class="works__modal__play-icon" width="24" height="24" fill="none" viewBox="0 0 24 24">
+        <path d="M18.25 12L5.75 5.75V18.25L18.25 12Z"></path>
+      </svg>
+      <svg class="works__modal__pause-icon" width="24" height="24" fill="none" viewBox="0 0 24 24">
+        <path d="M15.25 6.75V17.25"></path>
+        <path d="M8.75 6.75V17.25"></path>
       </svg>
     </button>
   </div>

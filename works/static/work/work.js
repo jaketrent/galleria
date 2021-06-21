@@ -3,9 +3,19 @@ function setup() {
   document.addEventListener('click', handleClickWork)
   document.addEventListener('keydown', filterKeys(handleClickWork))
 
+  const slideshow = document.querySelector('.collection_slideshow')
+  slideshow.addEventListener('click', handleSlideshowClick)
+  slideshow.addEventListener('keydown', filterKeys(handleSlideshowClick))
+
   bindImageHandler()
   bindNextHandler()
   bindPrevHandler()
+  bindPlayHandler()
+}
+
+function handleSlideshowClick() {
+  renderModal(queryImgs()[0])
+  play()
 }
 
 function filterKeys(callback, keys = ['Enter', ' ']) {
@@ -28,17 +38,21 @@ function queryImgs() {
 
 function handleNext(evt) {
   if (interactivePredicate(evt)) {
-    const imgs = queryImgs()
-    const modalImg = document.querySelector('.works__modal img')
-    const currentWorkIndex = imgs.findIndex(
-      (workImg) => workImg.getAttribute('src') === modalImg.getAttribute('src')
-    )
-    if (currentWorkIndex + 1 < imgs.length) {
-      modalImg.setAttribute(
-        'src',
-        imgs[currentWorkIndex + 1].getAttribute('src')
-      )
-    }
+    renderNext()
+  }
+}
+
+function renderNext() {
+  const imgs = queryImgs()
+  const modalImg = document.querySelector('.works__modal img')
+  const currentWorkIndex = imgs.findIndex(
+    (workImg) => workImg.getAttribute('src') === modalImg.getAttribute('src')
+  )
+  if (currentWorkIndex + 1 < imgs.length) {
+    modalImg.setAttribute('src', imgs[currentWorkIndex + 1].getAttribute('src'))
+    return true
+  } else {
+    return false
   }
 }
 
@@ -58,6 +72,35 @@ function handlePrev(evt) {
   }
 }
 
+function handlePlay(evt) {
+  if (interactivePredicate(evt)) {
+    play()
+  }
+}
+
+let playing = false
+let playTimer
+function play() {
+  clearInterval(playTimer)
+  playing = !playing
+
+  const playButton = document.querySelector('.works__modal__play')
+  playButton.classList.toggle('works__modal__play--paused', !playing)
+
+  if (playing) {
+    playTimer = setInterval(() => {
+      const renderedNext = renderNext()
+      if (!renderedNext) {
+        clearInterval(playTimer)
+        playing = false
+        playButton.classList.add('works__modal__play--paused', !playing)
+      }
+    }, 2500)
+  } else {
+    clearInterval(playTimer)
+  }
+}
+
 function bindImageHandler() {
   const modalImg = document.querySelector('.works__modal img')
   bindFresh(modalImg, handleNext)
@@ -71,6 +114,11 @@ function bindNextHandler() {
 function bindPrevHandler() {
   const prevButton = document.querySelector('.works__modal__prev')
   bindFresh(prevButton, handlePrev)
+}
+
+function bindPlayHandler() {
+  const playButton = document.querySelector('.works__modal__play')
+  bindFresh(playButton, handlePlay)
 }
 
 function bindCloseHandler(img) {
