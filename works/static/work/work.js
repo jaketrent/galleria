@@ -46,11 +46,17 @@ function handleNext(evt) {
 function renderNext() {
   const imgs = queryImgs()
   const modalImg = document.querySelector('.works__modal img')
+  const playButton = document.querySelector('.works__modal__play')
   const currentWorkIndex = imgs.findIndex(
     (workImg) => workImg.getAttribute('src') === modalImg.getAttribute('src')
   )
   if (currentWorkIndex + 1 < imgs.length) {
     modalImg.setAttribute('src', imgs[currentWorkIndex + 1].getAttribute('src'))
+    if (playing) {
+      playButton.classList.remove('works__modal__play--playing')
+      void playButton.offsetWidth // trigger reflow that allows animation to restart
+      playButton.classList.add('works__modal__play--playing')
+    }
     return true
   } else {
     return false
@@ -87,6 +93,7 @@ function play() {
 
   const playButton = document.querySelector('.works__modal__play')
   playButton.classList.toggle('works__modal__play--paused', !playing)
+  playButton.classList.toggle('works__modal__play--playing', playing)
 
   if (playing) {
     playTimer = setInterval(() => {
@@ -96,7 +103,7 @@ function play() {
       }
     }, 2500)
   } else {
-    clearInterval(playTimer)
+    pause()
   }
 }
 
@@ -104,6 +111,7 @@ function pause() {
   const playButton = document.querySelector('.works__modal__play')
   clearInterval(playTimer)
   playing = false
+  playButton.classList.remove('works__modal__play--playing')
   playButton.classList.add('works__modal__play--paused', false)
 }
 
