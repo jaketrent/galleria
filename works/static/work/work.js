@@ -92,14 +92,19 @@ function play() {
     playTimer = setInterval(() => {
       const renderedNext = renderNext()
       if (!renderedNext) {
-        clearInterval(playTimer)
-        playing = false
-        playButton.classList.add('works__modal__play--paused', !playing)
+        pause()
       }
     }, 2500)
   } else {
     clearInterval(playTimer)
   }
+}
+
+function pause() {
+  const playButton = document.querySelector('.works__modal__play')
+  clearInterval(playTimer)
+  playing = false
+  playButton.classList.add('works__modal__play--paused', false)
 }
 
 function handleFullscreen() {
@@ -143,9 +148,10 @@ function bindCloseHandler(img) {
   const hideModal = () => {
     if (document.fullscreenElement && document.exitFullscreen)
       document.exitFullscreen()
-    worksContainer.removeAttribute('aria-hidden')
+    pause()
     modal.classList.add('works__modal--hidden')
     modal.setAttribute('aria-hidden', 'true')
+    worksContainer.removeAttribute('aria-hidden')
     img.focus()
   }
 
