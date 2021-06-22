@@ -11,6 +11,7 @@ function setup() {
   bindNextHandler()
   bindPrevHandler()
   bindPlayHandler()
+  bindFullscreenHandler()
 }
 
 function handleSlideshowClick() {
@@ -101,6 +102,14 @@ function play() {
   }
 }
 
+function handleFullscreen() {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen()
+  } else {
+    if (document.exitFullscreen) document.exitFullscreen()
+  }
+}
+
 function bindImageHandler() {
   const modalImg = document.querySelector('.works__modal img')
   bindFresh(modalImg, handleNext)
@@ -121,12 +130,19 @@ function bindPlayHandler() {
   bindFresh(playButton, handlePlay)
 }
 
+function bindFullscreenHandler() {
+  const prevButton = document.querySelector('.works__modal__fullscreen')
+  bindFresh(prevButton, handleFullscreen)
+}
+
 function bindCloseHandler(img) {
   const modal = document.querySelector('.works__modal')
   const close = modal.querySelector('.works__modal__close')
   const worksContainer = document.querySelector('main')
 
   const hideModal = () => {
+    if (document.fullscreenElement && document.exitFullscreen)
+      document.exitFullscreen()
     worksContainer.removeAttribute('aria-hidden')
     modal.classList.add('works__modal--hidden')
     modal.setAttribute('aria-hidden', 'true')
