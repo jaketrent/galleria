@@ -37,10 +37,10 @@ function queryImgs() {
 }
 
 function handleNext() {
-  renderNext()
+  renderNext(false)
 }
 
-function renderNext() {
+function renderNext(resetProgressBar = true) {
   const imgs = queryImgs()
   const modalImg = document.querySelector('.works__modal img')
   const playButton = document.querySelector('.works__modal__play')
@@ -49,7 +49,7 @@ function renderNext() {
   )
   if (currentWorkIndex + 1 < imgs.length) {
     modalImg.setAttribute('src', imgs[currentWorkIndex + 1].getAttribute('src'))
-    if (playing) {
+    if (playing && resetProgressBar) {
       playButton.classList.remove('works__modal__play--playing')
       void playButton.offsetWidth // trigger reflow that allows animation to restart
       playButton.classList.add('works__modal__play--playing')

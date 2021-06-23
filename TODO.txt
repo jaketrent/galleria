@@ -1,4 +1,3 @@
-- Fix: Click modal photo, advances but doesn't restart 2500s interval, gets out of sync with progress bar
 - Arrow keys
 - Swipe
 - Zoom into modal transition
