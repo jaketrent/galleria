@@ -5,7 +5,6 @@ function setup() {
 
   const slideshow = document.querySelector('.collection_slideshow')
   slideshow.addEventListener('click', handleSlideshowClick)
-  slideshow.addEventListener('keydown', filterKeys(handleSlideshowClick))
 
   bindImageHandler()
   bindNextHandler()
@@ -37,10 +36,8 @@ function queryImgs() {
   return Array.from(document.querySelectorAll('.works__work img'))
 }
 
-function handleNext(evt) {
-  if (interactivePredicate(evt)) {
-    renderNext()
-  }
+function handleNext() {
+  renderNext()
 }
 
 function renderNext() {
@@ -63,26 +60,19 @@ function renderNext() {
   }
 }
 
-function handlePrev(evt) {
-  if (interactivePredicate(evt)) {
-    const imgs = queryImgs()
-    const modalImg = document.querySelector('.works__modal img')
-    const currentWorkIndex = imgs.findIndex(
-      (workImg) => workImg.getAttribute('src') === modalImg.getAttribute('src')
-    )
-    if (currentWorkIndex - 1 >= 0) {
-      modalImg.setAttribute(
-        'src',
-        imgs[currentWorkIndex - 1].getAttribute('src')
-      )
-    }
+function handlePrev() {
+  const imgs = queryImgs()
+  const modalImg = document.querySelector('.works__modal img')
+  const currentWorkIndex = imgs.findIndex(
+    (workImg) => workImg.getAttribute('src') === modalImg.getAttribute('src')
+  )
+  if (currentWorkIndex - 1 >= 0) {
+    modalImg.setAttribute('src', imgs[currentWorkIndex - 1].getAttribute('src'))
   }
 }
 
-function handlePlay(evt) {
-  if (interactivePredicate(evt)) {
-    play()
-  }
+function handlePlay() {
+  play()
 }
 
 let playing = false
@@ -112,16 +102,14 @@ function pause() {
   clearInterval(playTimer)
   playing = false
   playButton.classList.remove('works__modal__play--playing')
-  playButton.classList.add('works__modal__play--paused', false)
+  playButton.classList.add('works__modal__play--paused')
 }
 
 function handleFullscreen(evt) {
-  if (interactivePredicate(evt)) {
-    if (!document.fullscreenElement) {
-      document.documentElement.requestFullscreen()
-    } else {
-      if (document.exitFullscreen) document.exitFullscreen()
-    }
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen()
+  } else {
+    if (document.exitFullscreen) document.exitFullscreen()
   }
 }
 
@@ -166,7 +154,7 @@ function bindCloseHandler(img) {
   }
 
   const handleClose = (evt) => {
-    if (interactivePredicate(evt)) hideModal()
+    hideModal()
   }
 
   const handleEscape = (evt) => {
@@ -175,23 +163,13 @@ function bindCloseHandler(img) {
 
   bindFresh(close, handleClose)
   bindFresh(modal, handleEscape)
-
   modal.removeEventListener('keydown', handleEscape)
   modal.addEventListener('keydown', handleEscape)
 }
 
-function interactivePredicate(evt) {
-  return (
-    evt.type === 'click' ||
-    (evt.type === 'keydown' && ['Enter', ' '].includes(evt.key))
-  )
-}
-
 function bindFresh(el, callback) {
   el.removeEventListener('click', callback)
-  el.removeEventListener('keydown', callback)
   el.addEventListener('click', callback)
-  el.addEventListener('keydown', callback)
 }
 
 function setModalImgFrom(img) {
