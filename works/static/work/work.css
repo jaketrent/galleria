@@ -7,6 +7,7 @@
 }
 
 .works_button {
+  position: relative;
   color: rgb(var(--colorBgRgb));
   background-color: rgb(var(--colorAccentRgb));
   padding: 0.25rem 1.5ch;
@@ -22,6 +23,19 @@
 .works_button:focus {
   color: rgb(var(--colorBgRgb));
   background-color: rgb(var(--colorAccentHoverRgb));
+  outline: none;
+}
+.works_button:focus::after {
+  display: block;
+  content: ' ';
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  bottom: -4px;
+  left: -4px;
+  border: 2px solid rgb(var(--colorAccent2Rgb));
+  border-radius: 12px;
+  pointer-events: none;
 }
 .works_button:active {
   transform: scale(0.98);
@@ -167,7 +181,10 @@
   bottom: 1rem;
   left: 50%;
   transform: translateX(-50%);
-  white-space: nowrap;
+  display: flex;
+}
+.works__modal__controls > *:not(:last-child) {
+  margin-right: 0.5rem;
 }
 .works__modal__close {
   position: absolute;

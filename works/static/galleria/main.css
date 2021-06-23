@@ -4,6 +4,7 @@
   --colorFgRgb: 255, 255, 255;
   --colorAccentRgb: 254, 242, 72;
   --colorAccentHoverRgb: 240, 224, 7;
+  --colorAccent2Rgb: 20, 205, 214;
 }
 @font-face {
   font-family: 'Alegreya';
