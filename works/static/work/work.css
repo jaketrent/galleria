@@ -194,7 +194,8 @@
 .works__modal__play {
   position: relative;
 }
-.works__modal__play--playing::before {
+.works__modal__play__progressbar {
+  display: none;
   position: absolute;
   content: ' ';
   left: 0;
@@ -204,16 +205,19 @@
   background: rgba(var(--colorAccentRgb), 0.5);
   border-radius: 3px;
 }
+.works__modal__play--playing .works__modal__play__progressbar {
+  display: block;
+}
 @keyframes progress {
   100% {
     width: 100%;
   }
 }
-.works__modal__play--playing::after {
+.works__modal__play__progressbar::before {
   position: absolute;
   content: ' ';
+  top: 0;
   left: 0;
-  bottom: -10px;
   height: 4px;
   width: 0;
   background: rgba(var(--colorAccentRgb), 1);
