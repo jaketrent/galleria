@@ -115,11 +115,13 @@ function pause() {
   playButton.classList.add('works__modal__play--paused', false)
 }
 
-function handleFullscreen() {
-  if (!document.fullscreenElement) {
-    document.documentElement.requestFullscreen()
-  } else {
-    if (document.exitFullscreen) document.exitFullscreen()
+function handleFullscreen(evt) {
+  if (interactivePredicate(evt)) {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen()
+    } else {
+      if (document.exitFullscreen) document.exitFullscreen()
+    }
   }
 }
 
