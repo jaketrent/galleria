@@ -14,3 +14,5 @@
 - Disable prev/next buttons at ends
 - Play at end will restart at beginning
 - Fix og:image so it'll show in Messages and Groupme
+- Style login page
+- Develop new color palette

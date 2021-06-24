@@ -10,11 +10,12 @@
   {% with collection.works.all|first as work %}
     <meta property="og:image" content="{{ work.image_cdn_url }}"/>
   {% endwith %}
-  <link rel="stylesheet" href="{% static "work/work.css" %}" type="text/css" /> 
+  <link rel="stylesheet" href="{% static "works/works.css" %}" type="text/css" /> 
+  <link rel="stylesheet" href="{% static "works/collection_detail.css" %}" type="text/css" /> 
 {% endblock %}
 
 {% block bodyend %}
-  <script src="{% static "work/work.js" %}" charset="utf-8"></script>
+  <script src="{% static "works/collection_detail.js" %}" charset="utf-8"></script>
 {% endblock %}
 
 {% block main %}
