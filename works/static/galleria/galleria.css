@@ -1,10 +1,11 @@
 :root {
-  --colorBgRgb: 56, 57, 60;
-  --colorElev1BgRgb: 26, 27, 30;
-  --colorFgRgb: 255, 255, 255;
-  --colorAccentRgb: 254, 242, 72;
-  --colorAccentHoverRgb: 240, 224, 7;
-  --colorAccent2Rgb: 20, 205, 214;
+  --color-accent-hsl: 56, 99%, 64%;
+  --color-accent-dark1-hsl: 54, 100%, 49%;
+  --color-accent2-hsl: 183, 83%, 46%;
+  --color-bg-hsl: 48, 7%, 13%;
+  --color-bg-elev1-hsl: 40, 7%, 8%;
+  --color-fg-hsl: 55, 25%, 91%;
+  --color-fg2-hsl: 34, 54%, 61%;
 }
 @font-face {
   font-family: 'Alegreya';
@@ -19,8 +20,8 @@
   box-sizing: border-box;
 }
 body {
-  color: rgb(var(--colorFgRgb));
-  background: rgb(var(--colorBgRgb));
+  color: hsl(var(--color-fg-hsl));
+  background: hsl(var(--color-bg-hsl));
   font-family: Alegreya, sans-serif;
 }
 a {
@@ -28,7 +29,7 @@ a {
 }
 a:hover,
 a:focus {
-  color: rgb(var(--colorAccentRgb));
+  color: hsl(var(--color-accent-hsl));
 }
 svg {
   fill: none;

@@ -8,8 +8,8 @@
 
 .works_button {
   position: relative;
-  color: rgb(var(--colorBgRgb));
-  background-color: rgb(var(--colorAccentRgb));
+  color: hsl(var(--color-bg-hsl));
+  background-color: hsl(var(--color-accent-hsl));
   padding: 0.25rem 1.5ch;
   border-radius: 8px;
   text-decoration: none;
@@ -21,8 +21,8 @@
 }
 .works_button:hover,
 .works_button:focus {
-  color: rgb(var(--colorBgRgb));
-  background-color: rgb(var(--colorAccentHoverRgb));
+  color: hsl(var(--color-bg-hsl));
+  background-color: hsl(var(--color-accent-dark1-hsl, red));
   outline: none;
 }
 .works_button:focus::after {
@@ -33,7 +33,7 @@
   right: -4px;
   bottom: -4px;
   left: -4px;
-  border: 2px solid rgb(var(--colorAccent2Rgb));
+  border: 2px solid hsl(var(--color-accent2-hsl));
   border-radius: 12px;
   pointer-events: none;
 }

@@ -16,7 +16,7 @@
 .collections__collection a:hover,
 .collections__collection a:focus {
   outline: none;
-  color: rgb(var(--colorAccentRgb));
+  color: hsl(var(--color-accent-hsl));
   text-decoration: underline;
 }
 .collections__collection h2 {
@@ -25,7 +25,7 @@
   font-size: 1rem;
 }
 .collections__collection__img {
-  background: rgb(var(--colorElev1BgRgb));
+  background: hsl(var(--color-bg-elev1-hsl));
   line-height: 0;
   height: var(--img-dimension);
   width: var(--img-dimension);
@@ -36,7 +36,7 @@
 }
 .collections__collection a:hover .collections__collection__img,
 .collections__collection a:focus .collections__collection__img {
-  border-color: rgb(var(--colorAccentRgb));
+  border-color: hsl(var(--color-accent-hsl));
 }
 .collections__collection img {
   height: 100%;
