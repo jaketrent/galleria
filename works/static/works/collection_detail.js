@@ -11,6 +11,7 @@ function setup() {
   bindPrevHandler()
   bindPlayHandler()
   bindFullscreenHandler()
+  bindArrowHandlers()
 }
 
 function handleSlideshowClick() {
@@ -131,6 +132,15 @@ function bindPrevHandler() {
 function bindPlayHandler() {
   const playButton = document.querySelector('.works__modal__play')
   bindFresh(playButton, handlePlay)
+}
+
+function bindArrowHandlers(evt) {
+  const handleArrows = (evt) => {
+    if (evt.key === 'ArrowRight') renderNext()
+    if (evt.key === 'ArrowLeft') handlePrev()
+  }
+
+  document.addEventListener('keydown', handleArrows)
 }
 
 function bindFullscreenHandler() {
