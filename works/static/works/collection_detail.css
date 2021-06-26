@@ -122,7 +122,7 @@
   left: 0;
   height: 4px;
   width: 0;
-  background: hsl(var(--color--accent-hsl));
+  background: hsl(var(--color-accent-hsl));
   border-radius: 3px;
   animation: progress 2500ms linear forwards;
 }
