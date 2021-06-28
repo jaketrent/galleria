@@ -16,3 +16,6 @@ class AccessToken(models.Model):
 
     def get_share_url(self):
         return settings.DOMAIN + reverse('works_access_collection', args=(self.id,))
+
+    def __str__(self):
+        return self.collection.title + " " + self.id
