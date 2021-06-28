@@ -17,12 +17,17 @@
 .collections__collection a:focus {
   outline: none;
   color: hsl(var(--color-accent-hsl));
-  text-decoration: underline;
 }
-.collections__collection h2 {
-  margin: 0.5rem 0 1rem 0;
+.collections__collection__label {
   text-align: center;
+  margin: 0.5rem 0 1rem 0;
+}
+.collections__collection__label h2 {
+  margin: 0;
   font-size: 1rem;
+}
+.collections__collection__label time {
+  color: hsla(var(--color-fg-hsl), 0.5);
 }
 .collections__collection__img {
   background: hsl(var(--color-bg-elev1-hsl));

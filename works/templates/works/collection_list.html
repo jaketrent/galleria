@@ -18,7 +18,12 @@
     {% for collection in object_list %}
     <li class="collections__collection">
       <a href="{% url 'works_collection' collection.pk %}">
-        <h2>{{ collection.title }}</h2>
+        <div class="collections__collection__label">
+          <h2>{{ collection.title }}</h2>
+          {% if collection.date %}
+            <time datetime="{{ collection.date|date:"c" }}">{{ collection.date|date:"j M Y" }}</time>
+          {% endif %}
+        </div>
         <div class="collections__collection__img">
           {% with collection.works.all|first as work %}
           <img src="{{ work.image_cdn_url }}" />

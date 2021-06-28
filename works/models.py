@@ -1,3 +1,4 @@
+from datetime import date
 from django.conf import settings
 from django.db import models
 from django.urls import reverse
@@ -9,6 +10,7 @@ from urllib.parse import urlparse
 
 class Collection(models.Model):
     title = models.CharField(max_length=244)
+    date = models.DateField(default=date.today)
     description = models.TextField(null=True, blank=True)
     date_created = models.DateTimeField(default=timezone.now)
     user = models.ForeignKey(User, on_delete=models.CASCADE)

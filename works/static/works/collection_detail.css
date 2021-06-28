@@ -9,11 +9,15 @@
   height: 1.15rem;
   width: 1.15rem;
 }
-.collection_text h1 {
+.collection_intro__header header {
+  margin-bottom: 1rem;
+}
+.collection_intro__header h1 {
   color: hsl(var(--color-accent-hsl));
+  margin-bottom: 0;
 }
 @media (min-width: 800px) {
-  .collection_intro header {
+  .collection_intro__header {
     display: grid;
     grid-template-columns: 1fr auto;
     grid-gap: 1rem;
