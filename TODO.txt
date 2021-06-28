@@ -1,5 +1,3 @@
-- Event date field on collection
-- Inline access token with collection admin
 - Image in works list in admin
 - Swipe
 - Zoom into modal transition

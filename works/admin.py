@@ -1,6 +1,12 @@
+from access.models import AccessToken
 from django.contrib.auth.models import User
 from django.contrib import admin
 from .models import Work, Collection
+
+class AccessTokenInline(admin.StackedInline):
+    model = AccessToken
+    # readonly_fields = ('title', 'date_created', 'image', 'description', 'user')
+    # extra = 0
 
 class WorkInline(admin.TabularInline):
     model = Work
@@ -9,7 +15,7 @@ class WorkInline(admin.TabularInline):
 
 @admin.register(Collection)
 class CollectionAdmin(admin.ModelAdmin):
-    inlines = [WorkInline]
+    inlines = [AccessTokenInline, WorkInline]
 
 @admin.register(Work)
 class WorkAdmin(admin.ModelAdmin):
