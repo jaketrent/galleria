@@ -1,21 +1,31 @@
-{% extends "galleria/base.html" %} {% load static %} {% block head %} <link
-rel="stylesheet" href="{% static "works/works.css" %}" type="text/css" /> <link
-rel="stylesheet" href="{% static "works/collection_list.css" %}" type="text/css"
-/> {% endblock %} {% block main %}
-<h1>Welcome to the Galleria</h1>
+{% extends "galleria/base.html" %} 
 
-<ul class="collections">
-  {% for collection in object_list %}
-  <li class="collections__collection">
-    <a href="{% url 'works_collection' collection.pk %}">
-      <h2>{{ collection.title }}</h2>
-      <div class="collections__collection__img">
-        {% with collection.works.all|first as work %}
-        <img src="{{ work.image_cdn_url }}" />
-        {% endwith %}
-      </div>
-    </a>
-  </li>
-  {% endfor %}
-</ul>
+{% load static %} 
+
+{% block title %} 
+  Collections
+{% endblock %}
+
+{% block head %} 
+  <link rel="stylesheet" href="{% static "works/works.css" %}" type="text/css" /> 
+  <link rel="stylesheet" href="{% static "works/collection_list.css" %}" type="text/css" /> 
+{% endblock %} 
+
+{% block main %}
+  <h1>Welcome to the Galleria</h1>
+
+  <ul class="collections">
+    {% for collection in object_list %}
+    <li class="collections__collection">
+      <a href="{% url 'works_collection' collection.pk %}">
+        <h2>{{ collection.title }}</h2>
+        <div class="collections__collection__img">
+          {% with collection.works.all|first as work %}
+          <img src="{{ work.image_cdn_url }}" />
+          {% endwith %}
+        </div>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
 {% endblock %}

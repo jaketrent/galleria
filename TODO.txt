@@ -1,12 +1,12 @@
+- Admin edit link 
+- Event date field on collection
+- Inline access token with collection admin
+- Image in works list in admin
 - Swipe
 - Zoom into modal transition
 - Slide between image transition
 - review bem naming
 - Works ordering w/in a collection
-- Admin edit link 
-- Inline access token with collection admin
-- Event date field on collection
-- Image in works list in admin
 - Duplicate rejection in post endpoint to collection
 - Hash of filename in upload script so image urls aren't guessable
 - Counter x of y in modal view
