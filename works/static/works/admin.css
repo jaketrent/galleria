@@ -1,0 +1,11 @@
+.works-admin-collection__image {
+  width: 500px;
+  max-width: 100%;
+}
+.works-admin-collection__image--small {
+  width: 200px;
+  max-width: 100%;
+}
+.works-admin-collection__image img {
+  width: 100%;
+}

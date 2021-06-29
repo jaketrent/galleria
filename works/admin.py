@@ -10,8 +10,14 @@ class AccessTokenInline(admin.StackedInline):
 
 class WorkInline(admin.TabularInline):
     model = Work
-    readonly_fields = ('title', 'date_created', 'image', 'description', 'user')
+    fields=('title', 'image_tag_sm', 'description',)
+    readonly_fields = ('title', 'date_created', 'image', 'image_tag_sm', 'description', 'user')
     extra = 0
+
+    class Media:
+        css = {
+            'all': ('works/admin.css',)
+        }
 
 @admin.register(Collection)
 class CollectionAdmin(admin.ModelAdmin):
@@ -19,7 +25,14 @@ class CollectionAdmin(admin.ModelAdmin):
 
 @admin.register(Work)
 class WorkAdmin(admin.ModelAdmin):
-    # exclude = ['user',]
+    exclude = ['image_tag',]
+
+    readonly_fields = ('image_tag',)
+
+    class Media:
+        css = {
+            'all': ('works/admin.css',)
+        }
 
     def formfield_for_foreignkey(self, db_field, request, **kwargs):
         if db_field.name == 'user':

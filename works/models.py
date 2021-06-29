@@ -3,6 +3,7 @@ from django.conf import settings
 from django.db import models
 from django.urls import reverse
 from django.utils import timezone
+from django.utils.html import mark_safe
 from django.contrib.auth.models import User
 from galleria.settings import AWS_STORAGE_BUCKET_NAME,AWS_LOCATION
 from urllib.parse import urlparse
@@ -42,6 +43,16 @@ class Work(models.Model):
 
     def get_collection_absolute_url(self):
         return settings.DOMAIN + reverse('works_collection', args=(self.collection.pk,))
+
+    def image_tag(self):
+        return mark_safe(f'<div class="works-admin-collection__image"><img alt="" src="{self.image_cdn_url()}" /></div>')
+    image_tag.short_description = 'Image'
+    image_tag.allow_tags = True
+
+    def image_tag_sm(self):
+        return mark_safe(f'<div class="works-admin-collection__image works-admin-collection__image--small"><img alt="" src="{self.image_cdn_url()}" /></div>')
+    image_tag.short_description = 'Image'
+    image_tag.allow_tags = True
 
 
 def is_absolute(url):

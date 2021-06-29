@@ -1,9 +1,8 @@
-- Image in works list in admin
 - Swipe
 - Zoom into modal transition
 - Slide between image transition
 - review bem naming
-- Works ordering w/in a collection
+- Works re-ordering w/in a collection
 - Duplicate rejection in post endpoint to collection
 - Hash of filename in upload script so image urls aren't guessable
 - Counter x of y in modal view
