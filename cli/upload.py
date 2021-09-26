@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import boto3
-from PIL import Image
+from PIL import Image, ImageOps
 import os
 import shutil
 import sys, getopt
@@ -54,6 +54,7 @@ def resize_files(temp_dir, size, files):
 
 def resize_file(temp_dir, size, file):
     img = Image.open(file)
+    img = ImageOps.exif_transpose(img)
     img.thumbnail((size, size), Image.ANTIALIAS)
     orig_filename, ext = os.path.splitext(os.path.basename(file))
     new_filename = f'{orig_filename}-{size}px{ext}'
