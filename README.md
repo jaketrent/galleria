@@ -9,6 +9,14 @@ python manage.py createsuperuser
 python manage.py runserver
 ```
 
+## No pipenv
+
+If pipenv is not found, try:
+
+```
+python -m pipenv
+```
+
 ## To set up the cli
 
 Use `aws configure` or create `~/.aws/credentials` file:

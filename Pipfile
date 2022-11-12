@@ -17,6 +17,7 @@ requests = "*"
 heic-to-jpg = "*"
 gunicorn = "*"
 django-heroku = "*"
+pylint = "*"
 
 [dev-packages]
 rope = "*"
