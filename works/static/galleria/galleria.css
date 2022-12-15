@@ -40,3 +40,61 @@ path {
   stroke-linejoin: round;
   stroke-width: 1.5;
 }
+
+.alert {
+  color: hsl(var(--color-accent2-hsl));
+}
+
+.button {
+  position: relative;
+  color: hsl(var(--color-bg-hsl));
+  background-color: hsl(var(--color-accent-hsl));
+  padding: 0.25rem 1.5ch;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 300ms, transform 100ms linear;
+  font-family: Alegreya, sans-serif;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+}
+.button:hover,
+.button:focus {
+  color: hsl(var(--color-bg-hsl));
+  background-color: hsl(var(--color-accent-dark1-hsl));
+  outline: none;
+}
+.button:focus::after {
+  display: block;
+  content: ' ';
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  bottom: -4px;
+  left: -4px;
+  border: 2px solid hsl(var(--color-accent2-hsl));
+  border-radius: 12px;
+  pointer-events: none;
+}
+.button:active {
+  transform: scale(0.98);
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+.textinput {
+  background: none;
+  color: hsl(var(--color-fg-hsl));
+  font-family: Alegreya, sans-serif;
+  font-size: 1rem;
+  line-height: 1rem;
+  padding: 0.25rem 1.5ch;
+  border-radius: 8px;
+  border: 1px solid hsl(var(--color-fg-hsl));
+}
+.textinput:hover,
+.textinput:focus {
+  border-color: hsl(var(--color-accent-dark1-hsl));
+  outline: none;
+}

@@ -53,7 +53,7 @@
       </nav>
       <div class="collection_share">
         {% if collection.access_token %}
-          <a href="{{ collection.access_token.get_share_url }}" class="works_button works_label--icon">
+          <a href="{{ collection.access_token.get_share_url }}" class="button works_label--icon">
             <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
               <path d="M16.75 13.25L18 12C19.6569 10.3431 19.6569 7.65685 18 6V6C16.3431 4.34315 13.6569 4.34315 12 6L10.75 7.25"></path>
               <path d="M7.25 10.75L6 12C4.34315 13.6569 4.34315 16.3431 6 18V18C7.65685 19.6569 10.3431 19.6569 12 18L13.25 16.75"></path>
@@ -65,7 +65,7 @@
           <form action="{% url 'works_collection' collection.id %}" method="post" style="display: inline;">
             {% csrf_token %}
             {{ form }}
-            <button class="works_button works_label--icon">
+            <button class="button works_label--icon">
               <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
                 <path d="M12 5.75V18.25"></path>
                 <path d="M18.25 12L5.75 12"></path>
@@ -86,7 +86,7 @@
           <time datetime="{{ collection.date|date:"c" }}">{{ collection.date|date:"j M Y" }}</time>
         {% endif %}
       </header>
-      <button class="works_button works_label--icon collection_slideshow">
+      <button class="button works_label--icon collection_slideshow">
         <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.75 6.75C4.75 5.64543 5.64543 4.75 6.75 4.75H17.25C18.3546 4.75 19.25 5.64543 19.25 6.75V17.25C19.25 18.3546 18.3546 19.25 17.25 19.25H6.75C5.64543 19.25 4.75 18.3546 4.75 17.25V6.75Z"></path>
           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.25 12L9.75 8.75V15.25L15.25 12Z"></path>
@@ -109,20 +109,20 @@
 
   <div class="works__modal works__modal--hidden" role="dialog" aria-modal="true" aria-hidden="true">
     <img tabindex="-1" />
-    <button class="works_button works__modal__close" aria-label="Close">
+    <button class="button works__modal__close" aria-label="Close">
       <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
         <path d="M17.25 6.75L6.75 17.25"></path>
         <path d="M6.75 6.75L17.25 17.25"></path>
       </svg>
     </button>
     <div class="works__modal__controls">
-      <button class="works_button works__modal__prev" aria-label="Previous image">
+      <button class="button works__modal__prev" aria-label="Previous image">
         <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
           <path d="M10.25 6.75L4.75 12L10.25 17.25"></path>
           <path dth="1.5" d="M19.25 12H5"></path>
         </svg>
       </button>
-      <button class="works_button works__modal__play works__modal__play--paused" aria-label="Play">
+      <button class="button works__modal__play works__modal__play--paused" aria-label="Play">
         <svg class="works__modal__play-icon" width="24" height="24" fill="none" viewBox="0 0 24 24">
           <path d="M18.25 12L5.75 5.75V18.25L18.25 12Z"></path>
         </svg>
@@ -132,13 +132,13 @@
         </svg>
         <span class="works__modal__play__progressbar"></span>
       </button>
-      <button class="works_button works__modal__next" aria-label="Next image">
+      <button class="button works__modal__next" aria-label="Next image">
         <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
           <path d="M13.75 6.75L19.25 12L13.75 17.25"></path>
           <path d="M19 12H4.75"></path>
         </svg>
       </button>
-      <button class="works_button works__modal__fullscreen" aria-label="Fullscreen">
+      <button class="button works__modal__fullscreen" aria-label="Fullscreen">
         <svg width="24" height="24">
           <path d="M4.75 9.965v-5.09h5.229M14.034 4.875h5.091v5.09M19.125 14.021v5.104h-5.091M9.979 19.125H4.75v-5.104"/>
         </svg>

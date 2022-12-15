@@ -6,41 +6,6 @@
   margin-right: 2ch;
 }
 
-.works_button {
-  position: relative;
-  color: hsl(var(--color-bg-hsl));
-  background-color: hsl(var(--color-accent-hsl));
-  padding: 0.25rem 1.5ch;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: background-color 300ms, transform 100ms linear;
-  font-family: Alegreya, sans-serif;
-  font-size: 1rem;
-  border: none;
-  cursor: pointer;
-}
-.works_button:hover,
-.works_button:focus {
-  color: hsl(var(--color-bg-hsl));
-  background-color: hsl(var(--color-accent-dark1-hsl, red));
-  outline: none;
-}
-.works_button:focus::after {
-  display: block;
-  content: ' ';
-  position: absolute;
-  top: -4px;
-  right: -4px;
-  bottom: -4px;
-  left: -4px;
-  border: 2px solid hsl(var(--color-accent2-hsl));
-  border-radius: 12px;
-  pointer-events: none;
-}
-.works_button:active {
-  transform: scale(0.98);
-}
-
 .works_label--icon {
   display: inline-flex;
   align-items: center;

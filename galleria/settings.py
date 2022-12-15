@@ -172,3 +172,5 @@ django_heroku.settings(locals())
 ssl_require = os.environ['ENV'] == 'production'
 locals()['DATABASES']['default'] = dj_database_url.config(
     conn_max_age=django_heroku.MAX_CONN_AGE, ssl_require=ssl_require)
+
+LOGOUT_REDIRECT_URL = '/'
